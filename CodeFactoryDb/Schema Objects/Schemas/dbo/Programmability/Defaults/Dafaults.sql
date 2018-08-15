@@ -1,0 +1,3 @@
+﻿--CREATE DEFAULT DefaultOID
+--AS NEWID()
+--GO

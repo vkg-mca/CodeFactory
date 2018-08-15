@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[UserCredential]
+(
+	[OID] [dbo].[OIDType] NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+    [UserOID] [dbo].[OIDType] NOT NULL, 
+    [Password] VARBINARY(MAX) NOT NULL,
+	[StatusOID] UNIQUEIDENTIFIER NOT NULL , 
+    [CreatedDate] DATETIME2 NOT NULL DEFAULT GetDate(), 
+    [CreatedBy] VARCHAR(50) NOT NULL DEFAULT SYSTEM_USER, 
+	[RowVersion] ROWVERSION NOT NULL,
+    CONSTRAINT [UserFK] FOREIGN KEY ([UserOID]) REFERENCES [User]([OID])
+)
